@@ -1,0 +1,63 @@
+/* ========== 星星按鈕（紫色星星裝飾） ========== */
+@layer components {
+  .btn-purple {
+    font-weight: 400;
+  }
+  .btn-purple::before,
+  .btn-purple::after {
+    content: '✦';
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.35;
+    animation: btn-float 6s infinite linear;
+  }
+  .btn-purple::before {
+    top: 10%;
+    left: 10%;
+    color: #ffd700;
+  }
+  .btn-purple::after {
+    bottom: 10%;
+    right: 10%;
+    color: #aa00ff;
+    animation: btn-float 3s infinite reverse linear;
+  }
+  @keyframes btn-float {
+    0% {
+      transform: translate(-12px, 12px);
+    }
+    50% {
+      transform: translate(9px, -4px);
+    }
+    100% {
+      transform: translate(-12px, 12px);
+    }
+  }
+  @keyframes btn-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 20px #caaeffcc,
+        0 0 40px #caaeff66;
+    }
+    50% {
+      box-shadow:
+        0 0 25px #fff1c1,
+        0 0 50px #e1c4ffcc;
+    }
+  }
+  .btn-draw-glow {
+    animation: btn-glow 3s infinite ease-in-out;
+  }
+  /* 用 !important 覆蓋按鈕上 Tailwind utilities（utilities layer 在 components 之後會蓋掉這裡） */
+  .btn-purple.selected {
+    opacity: 1;
+    cursor: default;
+    pointer-events: none;
+    background: linear-gradient(145deg, #a16ae8, #5e4b8b) !important;
+    border-color: #dec0f1 !important;
+    box-shadow:
+      0 0 12px #caaeffcc,
+      0 0 6px #aa00ffaa !important;
+  }
+}

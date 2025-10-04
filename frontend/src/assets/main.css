@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@import './star-button.css';
+@import './star-background-animations.css';
+
+/* 避免 Tailwind 預設白底蓋住星星背景 */
+html,
+body {
+  min-height: 100%;
+  background-color: #0a0f1d;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 700;
+}
+/* 全站統一字體 */
+#app,
+#app * {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+#app {
+  font-weight: 500;
+  min-height: 100vh;
+  background: transparent;
+}
